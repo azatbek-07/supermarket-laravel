@@ -197,8 +197,8 @@
                 </div>
             </div>
         </section>
-  
-     <!-- Mahsulotlar -->
+
+       <!-- Mahsulotlar -->
 <section>
     <div class="flex justify-between items-center mb-8">
         <div>
@@ -214,287 +214,114 @@
         </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Olma -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop" 
-                     alt="Qizil olma" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/ef4444/ffffff?text=🍎+Olma'">
-                <span class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="badge-check" class="w-3 h-3 inline"></i> Yangi
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <h3 class="font-semibold text-gray-800 mb-2">Qizil olma</h3>
-                <p class="text-sm text-gray-500 mb-3">Yangi uzilgan, shirin</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">15,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Sut -->
+        @foreach ($products as $product)
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
             <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop" 
-                     alt="Sut" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/3b82f6/ffffff?text=🥛+Sut'">
-                <span class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="badge-check" class="w-3 h-3 inline"></i> Yangi
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <h3 class="font-semibold text-gray-800 mb-2">Sut 3.2%</h3>
-                <p class="text-sm text-gray-500 mb-3">1 litr, tabiiy</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">12,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
+                {{-- Mahsulot rasmi --}}
+                @if($product['name'] == 'Qizil olma')
+                    <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/ef4444/ffffff?text=🍎+Olma'">
+                @elseif($product['name'] == 'Sut 3.2%')
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/3b82f6/ffffff?text=🥛+Sut'">
+                @elseif($product['name'] == 'Tandir non')
+                    <img src="https://images.unsplash.com/photo-1549931319-a54579b3e610?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/f59e0b/ffffff?text=🍞+Non'">
+                @elseif($product['name'] == 'Coca Cola 1.5L')
+                    <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/dc2626/ffffff?text=🥤+Cola'">
+                @elseif($product['name'] == 'Banan')
+                    <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/fbbf24/ffffff?text=🍌+Banan'">
+                @elseif($product['name'] == 'Pishloq')
+                    <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/f59e0b/ffffff?text=🧀+Pishloq'">
+                @elseif($product['name'] == 'Shokolad')
+                    <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/7c3aed/ffffff?text=🍫+Shokolad'">
+                @elseif($product['name'] == 'Qulupnay')
+                    <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=300&fit=crop" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://placehold.co/400x300/ec4899/ffffff?text=🍓+Qulupnay'">
+                @else
+                    <img src="https://placehold.co/400x300/10b981/ffffff?text=📦+Mahsulot" 
+                         alt="{{ $product['name'] }}" 
+                         class="w-full h-48 object-cover">
+                @endif
 
-        <!-- Non -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1549931319-a54579b3e610?w=400&h=300&fit=crop" 
-                     alt="Tandir non" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/f59e0b/ffffff?text=🍞+Non'">
-                <span class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="flame" class="w-3 h-3 inline"></i> Mashhur
-                </span>
+                {{-- Badge --}}
+                @if($product['id'] <= 4)
+                    <span class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        <i data-lucide="badge-check" class="w-3 h-3 inline"></i> Yangi
+                    </span>
+                @elseif($product['id'] == 6)
+                    <span class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        <i data-lucide="percent" class="w-3 h-3 inline"></i> Chegirma
+                    </span>
+                @else
+                    <span class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        <i data-lucide="flame" class="w-3 h-3 inline"></i> Mashhur
+                    </span>
+                @endif
+
+                {{-- Sevimlilarga qo'shish --}}
                 <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
                     <i data-lucide="heart" class="w-4 h-4"></i>
                 </button>
             </div>
             <div class="p-5">
+                {{-- Reyting --}}
                 <div class="flex items-center gap-1 mb-2">
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <span class="text-sm text-gray-500 ml-1">(128)</span>
+                    @php
+                        $rating = $product['id'] % 2 == 0 ? 4 : 5;
+                        $reviewCount = $product['id'] * 25 + rand(10, 50);
+                    @endphp
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $rating)
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                        @elseif ($i - 0.5 == $rating)
+                            <i data-lucide="star-half" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                        @else
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-400"></i>
+                        @endif
+                    @endfor
+                    <span class="text-sm text-gray-500 ml-1">({{ $reviewCount }})</span>
                 </div>
-                <h3 class="font-semibold text-gray-800 mb-2">Tandir non</h3>
-                <p class="text-sm text-gray-500 mb-3">Yangi pishirilgan</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">8,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Coca Cola -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=300&fit=crop" 
-                     alt="Coca Cola" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/dc2626/ffffff?text=🥤+Cola'">
-                <span class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="badge-check" class="w-3 h-3 inline"></i> Yangi
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <h3 class="font-semibold text-gray-800 mb-2">Coca Cola 1.5L</h3>
-                <p class="text-sm text-gray-500 mb-3">Gazli ichimlik</p>
+                <h3 class="font-semibold text-gray-800 mb-2">{{ $product['name'] }}</h3>
+                <p class="text-sm text-gray-500 mb-3">{{ $product['description'] }}</p>
                 <div class="flex justify-between items-center">
                     <div>
-                        <span class="text-2xl font-bold text-green-600">14,000</span>
+                        <span class="text-2xl font-bold text-green-600">{{ number_format($product['price'], 0, ',', ' ') }}</span>
                         <span class="text-sm text-gray-400"> so'm</span>
+                        @if($product['id'] == 6)
+                            <span class="text-sm text-red-500 line-through ml-2">45,000</span>
+                        @endif
                     </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
+                    <a href="/product/{{ $product['id'] }}" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
                         <i data-lucide="shopping-cart" class="w-4 h-4"></i>
                         Savatga
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Banan -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop" 
-                     alt="Banan" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/fbbf24/ffffff?text=🍌+Banan'">
-                <span class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="flame" class="w-3 h-3 inline"></i> Mashhur
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <div class="flex items-center gap-1 mb-2">
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <span class="text-sm text-gray-500 ml-1">(128)</span>
-                </div>
-                <h3 class="font-semibold text-gray-800 mb-2">Banan</h3>
-                <p class="text-sm text-gray-500 mb-3">Import qilingan</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">22,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pishloq -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&h=300&fit=crop" 
-                     alt="Pishloq" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/f59e0b/ffffff?text=🧀+Pishloq'">
-                <span class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="flame" class="w-3 h-3 inline"></i> Mashhur
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <div class="flex items-center gap-1 mb-2">
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star-half" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <span class="text-sm text-gray-500 ml-1">(95)</span>
-                </div>
-                <h3 class="font-semibold text-gray-800 mb-2">Pishloq "Golland"</h3>
-                <p class="text-sm text-gray-500 mb-3">200g, tabiiy</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">35,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                        <span class="text-sm text-red-500 line-through ml-2">45,000</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Shokolad -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=300&fit=crop" 
-                     alt="Shokolad" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/7c3aed/ffffff?text=🍫+Shokolad'">
-                <span class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="flame" class="w-3 h-3 inline"></i> Mashhur
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <div class="flex items-center gap-1 mb-2">
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <span class="text-sm text-gray-500 ml-1">(256)</span>
-                </div>
-                <h3 class="font-semibold text-gray-800 mb-2">Alpen Gold shokolad</h3>
-                <p class="text-sm text-gray-500 mb-3">Sutli, 90g</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">18,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Qulupnay -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-            <div class="relative bg-gray-100">
-                <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=300&fit=crop" 
-                     alt="Qulupnay" 
-                     class="w-full h-48 object-cover"
-                     onerror="this.src='https://placehold.co/400x300/ec4899/ffffff?text=🍓+Qulupnay'">
-                <span class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    <i data-lucide="badge-check" class="w-3 h-3 inline"></i> Yangi
-                </span>
-                <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors shadow-md">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <div class="p-5">
-                <div class="flex items-center gap-1 mb-2">
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                    <i data-lucide="star" class="w-4 h-4 text-yellow-400"></i>
-                    <span class="text-sm text-gray-500 ml-1">(67)</span>
-                </div>
-                <h3 class="font-semibold text-gray-800 mb-2">Qulupnay</h3>
-                <p class="text-sm text-gray-500 mb-3">Yangi terilgan, 500g</p>
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-2xl font-bold text-green-600">28,000</span>
-                        <span class="text-sm text-gray-400"> so'm</span>
-                    </div>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        Savatga
-                    </button>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
     </div>
 </section>
