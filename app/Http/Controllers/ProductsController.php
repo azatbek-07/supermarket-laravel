@@ -30,7 +30,7 @@ class ProductsController extends Controller
             'name' => 'Tandir non',
             'price' => 8000,
             'description' => 'Yangi pishirilgan',
-            'image' => 'https://images.unsplash.com/photo-1549931319-a54579b3e610?w=400&h=300&fit=crop',
+          'image' => 'https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=400&h=300&fit=crop',
             'badge' => 'Mashhur',
         ],
         [
@@ -75,8 +75,15 @@ class ProductsController extends Controller
             'badge' => 'Yangi',
         ],
     ];
+
+    
     public function index()
     {
         return view('products.index', ['products' => $this->products]);
+    }
+
+    public function show($id){
+        $product = collect($this->products)->firstWhere('id', $id);
+        return view('products.show', compact('product'));
     }
 }
