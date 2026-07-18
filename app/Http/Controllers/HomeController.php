@@ -76,6 +76,6 @@ class HomeController extends Controller
     ];
     public function index()
     {
-        return view('home', ['products' => $this->products]);
+        return view('home.index', ['products' => $this->products]);
     }
 }
