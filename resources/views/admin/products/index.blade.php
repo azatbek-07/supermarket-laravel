@@ -102,16 +102,22 @@
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-2">
                                         <!-- Tahrirlash -->
-                                        <button onclick="openEditModal({{ $product['id'] }})"
-                                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition" title="Tahrirlash">
+                                        <a href="{{ route('admin.products.edit', $product->id) }}"
+                                            class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition inline-block"
+                                            title="Tahrirlash">
                                             ✏️
-                                        </button>
+                                        </a>
 
                                         <!-- O'chirish -->
-                                        <button onclick="confirmDelete({{ $product['id'] }})"
-                                            class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition" title="O'chirish">
-                                            🗑️
-                                        </button>
+                                        <form action="/admin/products/{{ $product['id'] }}/delete" method="POST"
+                                            class="inline-block" onsubmit="return confirm('Rostdan ham o\'chirmoqchimisiz?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
+                                                title="O'chirish">
+                                                🗑️
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

@@ -31,5 +31,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/', [AdminHomeController::class, 'index'])->name('home.index');
     Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
+    Route::get('/products/{id}/edit', [AdminProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{id}/edit', [AdminProductController::class, 'update'])->name('products.edit');
+
+
 
 });
