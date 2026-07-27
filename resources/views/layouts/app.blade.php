@@ -147,13 +147,7 @@
                             Aloqa
                         </a>
                     </li>
-                    <li>
-                        <a href="/about" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
-                            <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
-                            <i data-lucide="info" class="w-4 h-4"></i>
-                            Biz haqimizda
-                        </a>
-                    </li>
+                   
                 </ul>
             </div>
 
