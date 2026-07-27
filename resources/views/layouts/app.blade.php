@@ -38,7 +38,7 @@
             <nav class="hidden lg:block" id="mobile-menu">
                 <ul class="flex flex-col lg:flex-row items-center gap-2 lg:gap-8 text-white font-medium">
                     <li>
-                        <a href="{{route('home')  }}" class="relative px-3 py-2 hover:text-yellow-300 transition-colors duration-300 group flex items-center gap-1.5">
+                        <a href="{{ route('home.index') }}" class="relative px-3 py-2 hover:text-yellow-300 transition-colors duration-300 group flex items-center gap-1.5">
                             <i data-lucide="home" class="w-4 h-4"></i>
                             Bosh sahifa
                             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -52,7 +52,7 @@
                         </a>  
                     </li>
                     <li>
-                        <a href="/contact" class="relative px-3 py-2 hover:text-yellow-300 transition-colors duration-300 group flex items-center gap-1.5">
+                        <a href="{{ route('contact.index') }}" class="relative px-3 py-2 hover:text-yellow-300 transition-colors duration-300 group flex items-center gap-1.5">
                             <i data-lucide="phone" class="w-4 h-4"></i>
                             Aloqa
                             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -134,14 +134,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/products" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
+                        <a href="{{ route('products.index') }}" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
                             <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
                             <i data-lucide="package" class="w-4 h-4"></i>
                             Mahsulotlar
                         </a>
                     </li>
                     <li>
-                        <a href="/contact" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
+                        <a href="{{ route('contact.index') }}" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
                             <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
                             <i data-lucide="phone" class="w-4 h-4"></i>
                             Aloqa
