@@ -14,8 +14,7 @@
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden md:flex">
 
         <div class="md:w-1/2">
-            <img src="{{ $product['image'] }}"
-                 alt="{{ $product['name'] }}"
+            <img src="{{ Str::startsWith($product->image, 'http') ? $product->image : asset('storage/' . $product->image) }}"
                  class="w-full h-full object-cover">
         </div>
 

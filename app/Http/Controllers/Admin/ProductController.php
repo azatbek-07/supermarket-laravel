@@ -29,11 +29,11 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'quantity' => 'nullable|numeric|min:0',
+            'quantity' => 'required|numeric|min:0',
             'badge' => 'required|string|max:255',
-            'old_price' => 'nullable|numeric|min:0',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'old_price' => 'required|numeric|min:0',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -50,7 +50,7 @@ class ProductController extends Controller
 
     }
 
-     public function destroy(int $id)
+    public function destroy(int $id)
     {
         $product = Product::findOrFail($id);
 
@@ -61,6 +61,37 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'Uy muvaffaqiyatli o‘chirildi!');
+    }
+
+    public function create()
+    {
+        return view('admin.products.create');
+    }
+
+    public function store(Request $request)
+    {
+    
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0',
+            'badge' => 'required|string|max:255',
+            'old_price' => 'required|numeric|min:0',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $validated['image'] = $request
+            ->file('image')
+            ->store('products', 'public');
+
+        Product::create($validated);
+
+        return redirect()
+            ->route('admin.products.index')
+            ->with('success', 'Uy muvaffaqiyatli qo‘shildi!');
     }
 
 

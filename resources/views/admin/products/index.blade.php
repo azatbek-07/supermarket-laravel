@@ -9,12 +9,12 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">📦 Mahsulotlar</h1>
-                <p class="text-gray-500 mt-1">Jami: <strong class="text-green-600">10ta</strong> mahsulot</p>
+                <p class="text-gray-500 mt-1">Jami: <strong>{{ count($products) }} mahsulot</p>
             </div>
-            <button onclick="openAddModal()"
+            <a href="{{ route('admin.products.create') }}"
                 class="bg-green-600 text-white px-5 py-2.5 rounded-lg hover:bg-green-700 transition flex items-center gap-2">
                 <span class="text-xl">+</span> Yangi mahsulot
-            </button>
+            </a>
         </div>
 
         <!-- Qidiruv -->

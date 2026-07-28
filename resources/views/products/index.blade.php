@@ -17,7 +17,7 @@
             <div class="flex items-center gap-3">
                 <span class="text-gray-600">
                     <i data-lucide="layers" class="w-5 h-5 inline"></i>
-                    Jami: <strong class="text-green-600">48 ta</strong> mahsulot
+                    Jami: <strong class="text-green-600">{{ count($products) }}</strong> mahsulot
                 </span>
             </div>
         </div>
@@ -81,7 +81,7 @@
 
                         <div class="relative bg-gray-100">
 
-                            <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="w-full h-48 object-cover">
+                            <img src="{{ Str::startsWith($product->image, 'http') ? $product->image : asset('storage/' . $product->image) }}" class="w-full h-48 object-cover">
 
                             @if($product['badge'] == 'Yangi')
                                 <span
