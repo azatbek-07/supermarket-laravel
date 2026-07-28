@@ -63,23 +63,76 @@
 
             <!-- Right Side -->
             <div class="hidden lg:flex items-center gap-3">
-                <a href="/cart" class="relative bg-white/20 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 font-medium group">
-                    <span class="flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                        Savat
-                        <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full group-hover:bg-green-600 transition-colors duration-300">0</span>
-                    </span>
-                </a>
+                @auth
+                    <!-- Foydalanuvchi tizimga kirgan bo'lsa -->
+                    <a href="/cart" class="relative bg-white/20 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 font-medium group">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            Savat
+                            <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full group-hover:bg-green-600 transition-colors duration-300" id="cart-count">0</span>
+                        </span>
+                    </a>
 
-                <a href="/login" class="text-white hover:text-yellow-300 transition-colors duration-300 font-medium flex items-center gap-1.5">
-                    <i data-lucide="log-in" class="w-4 h-4"></i>
-                    Kirish
-                </a>
+                    <!-- Profil dropdown -->
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 font-medium">
+                            <i data-lucide="user" class="w-5 h-5"></i>
+                            <span>{{ Auth::user()->name }}</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        
+                        <!-- Dropdown menyu -->
+                        <div x-show="open" 
+                             @click.away="open = false" 
+                             x-transition:enter="transition ease-out duration-200"
+                             x-transition:enter-start="opacity-0 translate-y-1"
+                             x-transition:enter-end="opacity-100 translate-y-0"
+                             x-transition:leave="transition ease-in duration-150"
+                             x-transition:leave-start="opacity-100 translate-y-0"
+                             x-transition:leave-end="opacity-0 translate-y-1"
+                             class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50">
+                            
+                            <a href="" class="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-300">
+                                <i data-lucide="settings" class="w-4 h-4"></i>
+                                Profil sozlamalari
+                            </a>
+                            
+                            <a href="" class="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-300">
+                                <i data-lucide="package-check" class="w-4 h-4"></i>
+                                Buyurtmalarim
+                            </a>
+                            
+                            <hr class="my-1 border-gray-200">
+                            
+                            <form method="POST" action="">
+                                @csrf
+                                <button type="submit" class="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors duration-300">
+                                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                                    Chiqish
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <!-- Foydalanuvchi tizimga kirmagan bo'lsa -->
+                    <a href="/cart" class="relative bg-white/20 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 font-medium group">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            Savat
+                            <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full group-hover:bg-green-600 transition-colors duration-300">0</span>
+                        </span>
+                    </a>
 
-                <a href="/register" class="bg-yellow-400 text-gray-900 px-6 py-2.5 rounded-xl hover:bg-yellow-300 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 font-semibold flex items-center gap-1.5">
-                    <i data-lucide="user-plus" class="w-4 h-4"></i>
-                    Ro'yxatdan o'tish
-                </a>
+                    <a href="{{ route('login') }}" class="text-white hover:text-yellow-300 transition-colors duration-300 font-medium flex items-center gap-1.5">
+                        <i data-lucide="log-in" class="w-4 h-4"></i>
+                        Kirish
+                    </a>
+
+                    <a href="{{ route('register') }}" class="bg-yellow-400 text-gray-900 px-6 py-2.5 rounded-xl hover:bg-yellow-300 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 font-semibold flex items-center gap-1.5">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        Ro'yxatdan o'tish
+                    </a>
+                @endauth
             </div>
         </div>
     </header>
@@ -147,7 +200,15 @@
                             Aloqa
                         </a>
                     </li>
-                   
+                    @auth
+                    <li>
+                        <a href="" class="flex items-center gap-2 hover:text-green-400 transition-colors duration-300 group">
+                            <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
+                            <i data-lucide="package-check" class="w-4 h-4"></i>
+                            Buyurtmalarim
+                        </a>
+                    </li>
+                    @endauth
                 </ul>
             </div>
 
@@ -200,6 +261,9 @@
 
     </footer>
 
+    <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <!-- Mobile Menu Script -->
     <script>
         // Mobile menu toggle
