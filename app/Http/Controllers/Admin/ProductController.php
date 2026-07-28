@@ -50,5 +50,18 @@ class ProductController extends Controller
 
     }
 
+     public function destroy(int $id)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($product->image && !str_starts_with($product->image, 'http')) {
+            Storage::disk('public')->delete($product->image);
+        }
+
+        $product->delete();
+
+        return redirect()->route('admin.products.index')->with('success', 'Uy muvaffaqiyatli o‘chirildi!');
+    }
+
 
 }

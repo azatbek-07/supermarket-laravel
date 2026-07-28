@@ -109,7 +109,7 @@
                                         </a>
 
                                         <!-- O'chirish -->
-                                        <form action="/admin/products/{{ $product['id'] }}/delete" method="POST"
+                                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
                                             class="inline-block" onsubmit="return confirm('Rostdan ham o\'chirmoqchimisiz?')">
                                             @csrf
                                             @method('DELETE')
