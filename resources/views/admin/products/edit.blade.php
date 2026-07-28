@@ -26,7 +26,7 @@
 <!-- Form -->
 <div class="bg-white border border-gray-200 rounded-lg p-6">
 
-    <form action="{{ route('admin.products.update', $product->id) }}"
+    <form action="{{ route('admin.products.edit', $product->id) }}"
           method="POST"
           enctype="multipart/form-data"
           class="space-y-6">

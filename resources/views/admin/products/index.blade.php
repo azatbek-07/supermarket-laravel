@@ -57,7 +57,7 @@
 
                                 <!-- Rasm -->
                                 <td class="px-6 py-4">
-                                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}"
+                                    <img src="{{ Str::startsWith($product->image, 'http') ? $product->image : asset('storage/' . $product->image) }}"
                                         class="w-14 h-14 object-cover rounded-lg border">
                                 </td>
 
